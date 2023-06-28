@@ -1,0 +1,44 @@
+service: ms-template
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  timeout: 30
+  memorySize: 512
+  stage: ${opt:stage, "${env:stage, 'dev'}"}
+  region: ${opt:region, "${env:region, 'us-east-1'}"}
+  apiGateway:
+    restApiId: ${ssm:/backoffice/gateway/api-id}
+    restApiRootResourceId: ${ssm:/backoffice/gateway/root-resource-id}
+
+plugins:
+  - serverless-prune-plugin
+  - serverless-plugin-typescript
+
+custom:
+  prune:
+    automatic: true
+    includeLayers: true
+    number: 3
+  funcDir: src/framework/functions
+  basePath: 'backoffice/v1'
+  backoffice-authorizer: 
+    type: token
+    authorizerId: ${ssm:/backoffice/gateway/authorizer-id}
+
+package:
+  exclude:
+    - node_modules/**
+
+functions:
+  backofficeProxy:
+    handler: ${self:custom.funcDir}/backofficeProxy.handler
+    events:
+      - http:
+          path: ${self:custom.basePath}/template/{proxy+} 
+          method: any
+          authorizer: ${self:custom.backoffice-authorizer}
+          cors:
+            origin: '*'
+            headers: '*'
