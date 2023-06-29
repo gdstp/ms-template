@@ -15,7 +15,8 @@
     "forceConsistentCasingInFileNames": true,          
     "strict": true,                                   
     "strictNullChecks": false,                        
-    "skipLibCheck": true                               
+    "skipLibCheck": true,
+    "types": ["reflect-metadata"]
   },
   "exclude": ["node_modules/**/*"],
   "include": ["./"]
