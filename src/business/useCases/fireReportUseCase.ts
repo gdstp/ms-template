@@ -1,9 +1,6 @@
 import 'reflect-metadata'
 import { inject } from 'inversify'
-import {
-  ILoggerService,
-  LoggerServiceToken
-} from '@/business/services/iLoggerService'
+import { ILoggerService, LoggerServiceToken } from '../services/iLoggerService'
 
 export class FireReportUseCase {
   constructor(

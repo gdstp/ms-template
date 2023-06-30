@@ -16,7 +16,10 @@
     "strict": true,                                   
     "strictNullChecks": false,                        
     "skipLibCheck": true,
-    "types": ["reflect-metadata"]
+    "types": ["reflect-metadata"],
+    "plugins": [
+      { "transform": "transformer-module" }
+    ]
   },
   "exclude": ["node_modules/**/*"],
   "include": ["./"]
