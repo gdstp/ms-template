@@ -1,29 +1,30 @@
-import { httpResponse, InputSchema, middyfy } from 'ms-common'
-import { APIGatewayProxyEvent } from 'aws-lambda'
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
+import middy from '@middy/core'
+import middyJsonBodyParser from '@middy/http-json-body-parser'
+import middyHttpErrorHandler from '@middy/http-error-handler'
+import middyHttpCors from '@middy/http-cors'
 import { container } from '../../shared/ioc/container'
-import { FireReportUseCase } from '../../business/useCases/fireReportUseCase'
+import { FireReportOperator } from '../../controller/operators/fireReportOperator'
+import { InputFireReport } from '../../controller/serializer/fireReportSerializer'
 
-const mainHandler = async (event: APIGatewayProxyEvent) => {
-  container.get(FireReportUseCase)
+const mainHandler = async (
+  event: APIGatewayProxyEvent
+): Promise<APIGatewayProxyResult> => {
+  const operator = container.get(FireReportOperator)
 
-  console.log(event.body)
+  const params = event.body as any
 
-  return httpResponse.notFound()
-}
+  const input = new InputFireReport(params)
 
-const inputSchema: InputSchema = {
-  type: 'object',
-  properties: {
-    body: {
-      type: 'object',
-      properties: {
-        teste: {
-          type: 'string'
-        }
-      },
-      required: []
-    }
+  await operator.exec(input)
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify('ok')
   }
 }
 
-export const handler = middyfy(mainHandler, inputSchema)
+export const handler = middy(mainHandler)
+  .use(middyJsonBodyParser())
+  .use(middyHttpErrorHandler())
+  .use(middyHttpCors())

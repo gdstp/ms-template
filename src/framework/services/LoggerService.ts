@@ -8,8 +8,10 @@ export class LoggerService implements ILoggerService {
     message: 'Failed Message'
   }
 
-  success: () => {
-    code: 'Success'
-    message: 'Success Message'
+  success() {
+    return {
+      code: 'Success',
+      message: 'Success Message'
+    }
   }
 }
