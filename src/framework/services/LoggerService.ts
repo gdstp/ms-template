@@ -1,5 +1,5 @@
 import { injectable } from 'inversify'
-import { ILoggerService } from '@/business/services/iLoggerService'
+import { ILoggerService } from '../../business/services/iLoggerService'
 
 @injectable()
 export class LoggerService implements ILoggerService {

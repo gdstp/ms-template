@@ -15,7 +15,7 @@ dependencies:
     version: 6.0.1
   ms-common:
     specifier: github:gdstp/ms-common
-    version: github.com/gdstp/ms-common/aa08e344f1568e41badd9a65e4e1313320f31d29
+    version: github.com/gdstp/ms-common/5a5b23b1565410d04bb9c7b12d3ea75d2b6b4a96
   reflect-metadata:
     specifier: ^0.1.13
     version: 0.1.13
@@ -8178,10 +8178,10 @@ packages:
       compress-commons: 4.1.1
       readable-stream: 3.6.2
 
-  github.com/gdstp/ms-common/aa08e344f1568e41badd9a65e4e1313320f31d29:
-    resolution: {commit: aa08e344f1568e41badd9a65e4e1313320f31d29, repo: git+ssh://git@github.com/gdstp/ms-common.git, type: git}
+  github.com/gdstp/ms-common/5a5b23b1565410d04bb9c7b12d3ea75d2b6b4a96:
+    resolution: {commit: 5a5b23b1565410d04bb9c7b12d3ea75d2b6b4a96, repo: git+ssh://git@github.com/gdstp/ms-common.git, type: git}
     name: ms-common
-    version: 1.0.7
+    version: 1.0.9
     dependencies:
       '@middy/core': 4.5.2
       '@middy/http-cors': 4.5.2

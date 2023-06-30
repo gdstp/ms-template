@@ -1,7 +1,7 @@
 import { httpResponse, InputSchema, middyfy } from 'ms-common'
 import { APIGatewayProxyEvent } from 'aws-lambda'
 import { container } from '../../shared/ioc/container'
-import { FireReportUseCase } from '@/business/useCases/fireReportUseCase'
+import { FireReportUseCase } from '../../business/useCases/fireReportUseCase'
 
 const mainHandler = async (event: APIGatewayProxyEvent) => {
   container.get(FireReportUseCase)
