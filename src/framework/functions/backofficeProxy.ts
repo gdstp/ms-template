@@ -5,7 +5,7 @@ import { handler as fireReportHandler } from './fireReport'
 const routesMapper: RoutesMapper[] = [
   {
     path: 'ping',
-    methods: [HttpMethods.GET],
+    methods: [HttpMethods.POST],
     function: fireReportHandler
   }
 ]

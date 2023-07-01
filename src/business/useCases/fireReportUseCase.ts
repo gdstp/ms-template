@@ -1,8 +1,8 @@
 import 'reflect-metadata'
 import { inject, injectable } from 'inversify'
-import { right } from 'ms-common'
+import { left, right } from 'ms-common'
 import { ILoggerService, LoggerServiceToken } from '../services/iLoggerService'
-import { OutputFireReport } from '@/controller/serializer/fireReportSerializer'
+import { OutputFireReport } from '../../controller/serializers/fireReportSerializer'
 
 @injectable()
 export class FireReportUseCase {
@@ -11,7 +11,13 @@ export class FireReportUseCase {
   ) {}
 
   async exec(input: { test: string }): Promise<OutputFireReport> {
-    console.log(input)
+    if (input.test === '123') {
+      return left({
+        statusCode: 400,
+        message: 'nao to te entendendo',
+        shortMessage: 'NNTEDD'
+      })
+    }
     this.loggerService.success()
 
     return right({ fired: true })

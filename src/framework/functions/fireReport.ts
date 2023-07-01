@@ -6,7 +6,7 @@ import middyHttpCors from '@middy/http-cors'
 import { httpHandler } from 'ms-common'
 import { container } from '../../shared/ioc/container'
 import { FireReportOperator } from '../../controller/operators/fireReportOperator'
-import { InputFireReport } from '../../controller/serializer/fireReportSerializer'
+import { InputFireReport } from '../../controller/serializers/fireReportSerializer'
 
 const mainHandler = httpHandler(async (event: APIGatewayProxyEvent) => {
   const operator = container.get(FireReportOperator)

@@ -3,7 +3,7 @@ import { inject, injectable } from 'inversify'
 import {
   InputFireReport,
   OutputFireReport
-} from '../serializer/fireReportSerializer'
+} from '../serializers/fireReportSerializer'
 import { FireReportUseCase } from '../../business/useCases/fireReportUseCase'
 
 @injectable()
