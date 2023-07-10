@@ -29,7 +29,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     'sort-imports': [
       'error',
-      { ignoreCase: true, ignoreDeclarationSort: true }
+      { ignoreCase: false, ignoreDeclarationSort: true }
     ],
     'import/order': [
       1,
