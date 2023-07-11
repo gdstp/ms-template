@@ -15,7 +15,7 @@ dependencies:
     version: 6.0.1
   ms-common:
     specifier: github:gdstp/ms-common
-    version: github.com/gdstp/ms-common/6d69e0e839083aa260965e64ea94b2de47ea7f40
+    version: github.com/gdstp/ms-common/d401d327ae0d9f736807c0e0350db7dd5b0694b5
   reflect-metadata:
     specifier: ^0.1.13
     version: 0.1.13
@@ -33,18 +33,6 @@ devDependencies:
   '@commitlint/config-conventional':
     specifier: ^17.6.6
     version: 17.6.6
-  '@middy/core':
-    specifier: ^4.5.2
-    version: 4.5.2
-  '@middy/http-cors':
-    specifier: ^4.5.2
-    version: 4.5.2
-  '@middy/http-error-handler':
-    specifier: ^4.5.2
-    version: 4.5.2
-  '@middy/http-json-body-parser':
-    specifier: ^4.5.2
-    version: 4.5.2
   '@types/aws-lambda':
     specifier: ^8.10.119
     version: 8.10.119
@@ -1614,28 +1602,33 @@ packages:
   /@middy/core@4.5.2:
     resolution: {integrity: sha512-UPShFdYeXFFBpNQAjYtxyXIRZi7RLyyY09zA6jvH1NfuGhf4VvEyVluG3BcZj+HXOOO4dHevYxvM8XvQgivONQ==}
     engines: {node: '>=16'}
+    dev: false
 
   /@middy/http-cors@4.5.2:
     resolution: {integrity: sha512-gB7TVMgT0XbOKanO6pnAPdhLGBMzYnFnWijmRE5OpItxr4a/9fwjcWKTB41I9A6Ll03SOHnuNMyO1RA3yIcrbQ==}
     engines: {node: '>=16'}
     dependencies:
       '@middy/util': 4.5.2
+    dev: false
 
   /@middy/http-error-handler@4.5.2:
     resolution: {integrity: sha512-I96HNipipZr7q5NarNrDKmlF8rbWGxF0N9OkSgJoj+rKEEhWlvT1MsJCWMOq9Hr9vSSjLi+j6UcweIuzofeSwA==}
     engines: {node: '>=16'}
     dependencies:
       '@middy/util': 4.5.2
+    dev: false
 
   /@middy/http-json-body-parser@4.5.2:
     resolution: {integrity: sha512-WehM0vwiu6WCmvFj09Wff9CSJLyenBR0fz0Iil4E66Ydn89Jxz5GP2tpm8jxSQD5hmD1ZEczDk9ri2s/QVi5gA==}
     engines: {node: '>=16'}
     dependencies:
       '@middy/util': 4.5.2
+    dev: false
 
   /@middy/util@4.5.2:
     resolution: {integrity: sha512-Ac+mj8iSsmXbQeGVw5DJyvw5Y2pb0mIqRnxXIhakULhELSYj4ZyCWKwEhaYZgyKzZ7POSNcp1rMktFe2/8dCsQ==}
     engines: {node: '>=16'}
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -7663,10 +7656,10 @@ packages:
       compress-commons: 4.1.1
       readable-stream: 3.6.2
 
-  github.com/gdstp/ms-common/6d69e0e839083aa260965e64ea94b2de47ea7f40:
-    resolution: {commit: 6d69e0e839083aa260965e64ea94b2de47ea7f40, repo: git+ssh://git@github.com/gdstp/ms-common.git, type: git}
+  github.com/gdstp/ms-common/d401d327ae0d9f736807c0e0350db7dd5b0694b5:
+    resolution: {commit: d401d327ae0d9f736807c0e0350db7dd5b0694b5, repo: git+ssh://git@github.com/gdstp/ms-common.git, type: git}
     name: ms-common
-    version: 1.0.25
+    version: 1.0.29
     dependencies:
       '@middy/core': 4.5.2
       '@middy/http-cors': 4.5.2
