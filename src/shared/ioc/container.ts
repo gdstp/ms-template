@@ -3,10 +3,10 @@ import { Container } from 'inversify'
 import {
   ILoggerService,
   LoggerServiceToken
-} from '../../business/services/iLoggerService'
-import { LoggerService } from '../../framework/services/LoggerService'
-import { FireReportUseCase } from '../../business/useCases/fireReportUseCase'
-import { FireReportOperator } from '../../controller/operators/fireReportOperator'
+} from '@/business/services/iLoggerService'
+import { LoggerService } from '@/framework/services/LoggerService'
+import { FireReportUseCase } from '@/business/useCases/fireReportUseCase'
+import { FireReportOperator } from '@/controller/operators/fireReportOperator'
 
 const container = new Container()
 

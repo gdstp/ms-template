@@ -4,7 +4,7 @@ import {
   InputFireReport,
   OutputFireReport
 } from '../serializers/fireReportSerializer'
-import { FireReportUseCase } from '../../business/useCases/fireReportUseCase'
+import { FireReportUseCase } from '@/business/useCases/fireReportUseCase'
 
 @injectable()
 export class FireReportOperator extends AbstractOperator<
