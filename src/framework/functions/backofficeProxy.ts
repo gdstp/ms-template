@@ -1,5 +1,5 @@
 import { APIGatewayProxyEvent, Context } from 'aws-lambda'
-import { backofficeHandler, HttpMethods, RoutesMapper } from 'ms-common'
+import { HttpMethods, RoutesMapper, backofficeHandler } from 'ms-common'
 import { handler as fireReportHandler } from './fireReport'
 
 const routesMapper: RoutesMapper[] = [

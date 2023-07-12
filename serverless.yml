@@ -13,23 +13,33 @@ provider:
     restApiRootResourceId: ${ssm:/backoffice/gateway/root-resource-id}
 
 plugins:
-  - serverless-prune-plugin
-  - serverless-plugin-typescript
+  - serverless-webpack
   - serverless-offline
+  - serverless-prune-plugin
 
 custom:
   prune:
     automatic: true
     includeLayers: true
     number: 3
-  funcDir: src/framework/functions
+  funcDir: 'src/framework/functions'
   basePath: 'backoffice/v1'
   backoffice-authorizer: 
     type: token
     authorizerId: ${ssm:/backoffice/gateway/authorizer-id}
+  serverless-offline:
+    httpPort: 4005
+    lambdaPort: 3005
+    stage: local
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packages: npm
+    packagerOptions:
+      noFrozenLockfile: true
 
 package:
-  exclude:
+  patterns:
     - node_modules/**
 
 functions:
