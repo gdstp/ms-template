@@ -1,9 +1,6 @@
 import 'reflect-metadata'
 import { Container } from 'inversify'
-import {
-  ILoggerService,
-  LoggerServiceToken
-} from '@/business/services/iLoggerService'
+import { ILoggerService, LoggerServiceToken } from '@/business/services/iLoggerService'
 import { LoggerService } from '@/framework/services/LoggerService'
 import { FireReportUseCase } from '@/business/useCases/fireReportUseCase'
 import { FireReportOperator } from '@/controller/operators/fireReportOperator'

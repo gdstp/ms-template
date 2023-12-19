@@ -9,8 +9,8 @@ provider:
   stage: ${opt:stage, "${env:stage, 'dev'}"}
   region: ${opt:region, "${env:region, 'us-east-1'}"}
   apiGateway:
-    restApiId: ${ssm:/backoffice/gateway/api-id}
-    restApiRootResourceId: ${ssm:/backoffice/gateway/root-resource-id}
+    restApiId: ${ssm:api-gateway-api-id}
+    restApiRootResourceId: ${ssm:api-gateway-root-resource-id}
 
 plugins:
   - serverless-webpack
@@ -24,9 +24,9 @@ custom:
     number: 3
   funcDir: 'src/framework/functions'
   basePath: 'backoffice/v1'
-  backoffice-authorizer: 
+  gateway-authorizer:
     type: token
-    authorizerId: ${ssm:/backoffice/gateway/authorizer-id}
+    authorizerId: ${ssm:api-gateway-authorizer-id}
   serverless-offline:
     httpPort: 4005
     lambdaPort: 3005
@@ -47,9 +47,9 @@ functions:
     handler: ${self:custom.funcDir}/backofficeProxy.handler
     events:
       - http:
-          path: ${self:custom.basePath}/template/{proxy+} 
+          path: ${self:custom.basePath}/template/{proxy+}
           method: any
-          authorizer: ${self:custom.backoffice-authorizer}
+          authorizer: ${self:custom.gateway-authorizer}
           cors:
             origin: '*'
             headers: '*'
